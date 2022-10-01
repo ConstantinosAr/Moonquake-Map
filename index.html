@@ -35,6 +35,10 @@
   </script>
 
   <div id="globeViz"></div>
+  
+  <div id="cont" style="display: none;position:absolute; right:0; z-index:20; width:400px; height: 400px; background-color: rgba(200, 255, 255, 0.6)">
+    <img id="plots" src="" alt="">
+  </div>
 
   <script>
     const colorScale = d3.scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
@@ -55,6 +59,18 @@
     */
 
     const N = 10;
+    
+     let marker = `<svg viewBox="-4 0 36 36">
+        <path fill="currentColor" d="M14,0 C21.732,0 28,5.641 28,12.6 C28,23.963 14,36 14,36 C14,36 0,24.064 0,12.6 C0,5.641 6.268,0 14,0 Z"></path>
+        <circle fill="black" cx="14" cy="14" r="7"></circle>
+        </svg>`;
+
+    let markdata = [{
+      lat: (Math.random() - 0.5) * 180,
+      lng: (Math.random() - 0.5) * 360,
+      size: 7 + Math.random() * 30,
+      color: ['red', 'white', 'blue', 'green'][Math.round(Math.random() * 3)]
+    }];
     
 
     
@@ -99,6 +115,20 @@
         .ringMaxRadius('maxR')
         .ringPropagationSpeed('propagationSpeed')
         .ringRepeatPeriod('repeatPeriod')
+        .htmlElementsData(markdata)
+        .htmlElement(d => {
+          const el = document.createElement('div');
+          el.innerHTML = marker;
+          el.style.color = d.color;
+          el.style.width = `${d.size}px`;
+          el.style['pointer-events'] = 'auto';
+          el.style.cursor = 'pointer';
+          el.onclick = () => {
+
+            document.getElementById('plots').src = './chart.jpg';
+            document.getElementById('cont').style.display = "block";
+          };
+          return el;
         (document.getElementById('globeViz'));
 
 
