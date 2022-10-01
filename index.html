@@ -21,6 +21,10 @@
     <input id="yearslide" type="range" class="form-range" id="customRange1">
     <label id="yearlabel" for="customRange1" class="form-label" style="font-size: 25px; color: #FDEE48">50</label>
   </div>
+  
+  <div id="cont" style="position: absolute; display: none; z-index:20; width:400px; height: 400px; background-color: rgba(255, 255, 255, 0.2)">
+    <img id="plots" src="" alt="">
+  </div>
 
 
 
@@ -33,9 +37,7 @@
 
   <div id="globeViz"></div>
   
-  <div id="cont" style="position: absolute; display: none; z-index:20; width:400px; height: 400px; background-color: rgba(255, 255, 255, 0.2)">
-    <img id="plots" src="" alt="">
-  </div>
+  
 
   <script>
     const colorScale = d3.scaleOrdinal(['orangered', 'mediumblue', 'darkgreen', 'yellow']);
