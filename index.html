@@ -183,9 +183,6 @@
           <img id="plots" src="" alt="" style="width:750px;">
         </div>
 
-        <h1 id="mycust"></h1>
-
-        
 
         <script>
 
@@ -641,6 +638,9 @@
               document.getElementById('con').style.borderBottom = '2px solid white';
 
               markdata = [];
+	      gData = [];
+		
+	
 
 
               for (let index = 0; index < apolloSeismic.length; index++) {
@@ -658,6 +658,7 @@
               }
 
              moon.htmlElementsData(markdata);
+	     moon.ringsData(gData);
         
             });
 
