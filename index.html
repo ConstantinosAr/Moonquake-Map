@@ -297,10 +297,7 @@
 <g>
 </g>
 </svg>`;
-
-         
-          
-          
+       
           let labelMark = `<div onmouseout="this.children[1].style.display = 'none';" onmouseover="this.children[1].style.display = 'block';"><div class="dangerIcon" style="width: 15px;">${marker}</div><div class="seismicdata" style="display: none;width:90px; position:absolute; top: 10px; left:6px; background-color: rgba(0, 0, 0, 0.6); border: 1px solid white;"><h4 style="font-size: 11px; color: white;">Lat: {lat}<br>Long: {long}<br>Magnitude: {magn}<br>{string}</h4></div></div>`;
 
           let years = ['1969', '1970', '1971', '1972', '1973', '1974', '1975', '1976', '1977'];
@@ -313,7 +310,6 @@
 
             let curYear = parseInt(event.target.value) + 1969;
 
-            
             let currMonth = parseInt(document.getElementById('monthslider').value);
 
             let date = new Date(curYear, currMonth+1, 0);
@@ -323,9 +319,7 @@
             dayslider.setAttribute('max', date.getDate());
             dayslider.value = 1;
             document.getElementById('daylabel').innerText = 1;
-            
 
-      
           });
 
           document.getElementById('monthslider').addEventListener('input', (event) => {
@@ -344,20 +338,15 @@
             dayslider.setAttribute('max', date.getDate());
             dayslider.value = 1;
             document.getElementById('daylabel').innerText = 1;
-            
-          
       
           });
 
           document.getElementById('dayslider').addEventListener('input', (event) => {
             document.getElementById('daylabel').innerText = event.target.value;
             
-      
           });
 
           
-
-
         </script>
       
         <div id="globeViz"></div>
@@ -367,11 +356,7 @@
       
           const labelsTopOrientation = new Set(['Apollo 12', 'Luna 2', 'Luna 20', 'Luna 21', 'Luna 24', 'LCROSS Probe']); // avoid label collisions
       
-      
           const elem = document.getElementById('globeViz');
-      
-      
-          const N = 10;
 
           let gData = [];
 
@@ -393,8 +378,6 @@
 		
 	  let moonland_data;
 
-
-
           async function getData() {
 
             let naka = await fetch('./resources/cleanedData.json');
@@ -413,35 +396,8 @@
 
             moonland_data = await moonlandings.json();
 
-            
-
-            // for (let index = 0; index < 5; index++) {
-
-            //   gData.push({
-            //     lat: nakaData[index].lat,
-            //     lng: nakaData[index].long,
-            //     maxR: nakaData[index].magn * 7,
-            //     propagationSpeed: 5,
-            //     repeatPeriod: 500
-            //   });
-
-            //   markdata.push({
-            //     nak: true,
-            //     lat: apolloSeismic[index].lat,
-            //     lng: apolloSeismic[index].long,
-            //     size: nakaData[index].magn * 10,
-            //     year: nakaData[index].year,
-            //     day: nakaData[index].day,
-            //     month: nakaData[index].month,
-            //     mgn: nakaData[index].magn,
-            //   });
-
-
-            // }
-
             for (let index = 0; index < apolloSeismic.length; index++) {
               
-
               markdata.push({
                 nak: false,
                 lat: apolloSeismic[index].lat,
@@ -457,30 +413,14 @@
 
           }
 
-          
-
           function start() {
-            
-      
-            
+               
             const moon = Globe()
               .globeImageUrl('./resources/lunar_surface.jpg')
               .bumpImageUrl('./resources/lunar_bumpmap.jpg')
               .backgroundImageUrl('https://unpkg.com/three-globe@2.24.7/example/img/night-sky.png')
               .showGraticules(false)
-              .showAtmosphere(false) // moon has no atmosphere
-              // .labelText('label')
-              // .labelSize(1.7)
-              // .labelDotRadius(0.4)
-              // .labelDotOrientation(d => labelsTopOrientation.has(d.label) ? 'top' : 'bottom')
-        //       .labelColor(d => colorScale(d.agency))
-        //       .labelLabel(d => `
-        //           <div style="background-color: lightgray;"
-        // ><b>${d.label}</b></div>
-        //           <div>${d.agency} - ${d.program} Program</div>
-        //           <div>Landing on <i>${new Date(d.date).toLocaleDateString()}</i></div>
-        //         `)
-        //       .onLabelClick(d => window.open(d.url, '_blank'))
+              .showAtmosphere(false)
               .ringsData(gData)
               .ringColor(() => "yellow")
               .ringMaxRadius('maxR')
@@ -503,21 +443,12 @@
                   .replace('{miss}', d.mission)
                   .replace('{na}', d.name);
                 }
-                
-
-                // el.style.width = `${d.size}px`;
-                
+                              
                 el.style['pointer-events'] = 'auto';
                 el.style.cursor = 'pointer';
                 el.onclick = (event) => {
-
-                  
-
+                 
                   let stationNum = event.currentTarget.children[0].getAttribute("svalue");
-
-                  
-
-                  
 
                   if (globDict.stations.includes(stationNum)) {
 
@@ -526,11 +457,7 @@
                     document.getElementById('plots').src = filePath;
                     document.getElementById('cont').style.display = "block";
 
-
                   }
-
-                  
-
 
                 };
                 return el;
@@ -542,9 +469,7 @@
               .labelColor(d => "lightskyblue")
               .labelsData(moonland_data)
               (document.getElementById('globeViz'));
-      
-              
-      
+          
             const colorInterpolator = t => `rgba(255,100,50,${Math.sqrt(1 - t)})`;
 
             function clearTab(event) {
@@ -562,15 +487,11 @@
 
             }
 
-
             function getReqDate() {
-
 
               selectedYear = parseInt(document.getElementById('yearslider').value) + 1969;
 
-              
               selectedMonth = parseInt(document.getElementById('monthslider').value) + 1;
-
 
               selectedDay = parseInt(document.getElementById('dayslider').value);
 
@@ -592,11 +513,9 @@
                   });
                 }
                 
-
               }
 
               moon.htmlElementsData(markdata);
-
               
             }
 
@@ -604,7 +523,6 @@
 
             document.getElementById('nak').addEventListener('click', clearTab);
 
-            
 
             document.getElementById('clearMap').addEventListener('click', (event) => {
 
@@ -635,12 +553,9 @@
               markdata = [];
 	      gData = [];
 		
-	
-
 
               for (let index = 0; index < apolloSeismic.length; index++) {
               
-
                 markdata.push({
 		nak: false,
 		lat: apolloSeismic[index].lat,
@@ -675,18 +590,6 @@
                   mgn: nakaData[index].magn,
                 });
               
-              // markdata.push({
-              //   lat: nakaData[index].lat,
-              //   lng: nakaData[index].long,
-              //   size: nakaData[index].magn * 10,
-              //   year: nakaData[index].year,
-              //   day: nakaData[index].day,
-              //   month: nakaData[index].month,
-              //   mgn: nakaData[index].magn
-              // })
-
-              // document.getElementById('mycust').innerText = markdata.length;
-
                 gData.push({
                   lat: nakaData[index].lat,
                   lng: nakaData[index].long,
@@ -712,8 +615,6 @@
 
           
           getData();
-          
-      
           
         </script>
       </body>
