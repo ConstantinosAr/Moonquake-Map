@@ -1,0 +1,37 @@
+[
+    {
+        "code": "S11",
+        "name": "ALSEP 11, Mare Tranquillitatis",
+        "mission": "Apollo 11",
+        "lat": 0.67416,
+        "lng": 23.473146
+    },
+    {
+        "code": "S12",
+        "name": "ALSEP 12, Oceanus Procellarum",
+        "mission": "Apollo 12",
+        "lat": -3.01084,
+        "lng": -23.42456
+    },
+    {
+        "code": "S14",
+        "name": "ALSEP 14, Fra Mauro",
+        "mission": "Apollo 14",
+        "lat": -3.6445,
+        "lng": -17.47753
+    },
+    {
+        "code": "S15",
+        "name": "ALSEP 15, Hadley Rille",
+        "mission": "Apollo 15",
+        "lat": 26.13407,
+        "lng": 3.62981
+    },
+    {
+        "code": "S16",
+        "name": "ALSEP 16, Descartes",
+        "mission": "Apollo 16",
+        "lat": -8.97577,
+        "lng": 15.49649
+    }
+]
