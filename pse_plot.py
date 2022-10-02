@@ -281,10 +281,10 @@ def plot_data(stations=None, years=None, days=None, display=False):
 
 
 if __name__ == "__main__":
-   # plot_data("s11")
-    #plot_data("s12")
-   # plot_data("s14")
-   # plot_data("s15")
-    #plot_data("s16")
+    plot_data("s11")
+    plot_data("s12")
+    plot_data("s14")
+    plot_data("s15")
+    plot_data("s16")
 
     make_plot_dictionary()
