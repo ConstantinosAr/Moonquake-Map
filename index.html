@@ -183,7 +183,7 @@
           <div style="position: absolute; right:5px; cursor: pointer;" onclick="document.getElementById('cont').style.display = 'none';">
             <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"/></svg>
           </div>
-          <img id="plots" src="" alt="" style="width:600px;">
+          <img id="plots" src="" alt="" style="width:750px;">
         </div>
 
         <h1 id="mycust"></h1>
@@ -396,6 +396,8 @@
           let selectedDay;
 
           let globDict;
+		
+	  let moonland_data;
 
 
 
@@ -412,6 +414,10 @@
             let plots = await fetch('./plots/plot_dict.json');
 
             plot_data = await plots.json();
+		  
+	    let moonlandings = await fetch('./moon_lands.json');
+
+            moonland_data = await moonlandings.json();
 
             
 
@@ -535,6 +541,17 @@
                 };
                 return el;
               })
+	      .labelText('label')
+              .labelSize(1.7)
+              .labelDotRadius(0.4)
+              .labelDotOrientation(d => labelsTopOrientation.has(d.label) ? 'top' : 'bottom')
+              .labelColor(d => colorScale(d.agency))
+              .labelLabel(d => `
+                  <div><b>${d.label}</b></div>
+                  <div>${d.agency} - ${d.program} Program</div>
+                  <div>Landing on <i>${new Date(d.date).toLocaleDateString()}</i></div>
+                `)
+              .labelsData(moonland_data)
               (document.getElementById('globeViz'));
       
               
@@ -569,6 +586,27 @@
               selectedDay = parseInt(document.getElementById('dayslider').value);
 
               globDict = plot_data[selectedYear][selectedMonth][selectedDay];
+		    
+	      markdata = []
+
+              for (let index = 0; index < apolloSeismic.length; index++) {
+
+              
+                if (globDict.stations.includes(`s${apolloSeismic[index].mission.split(' ')[1]}`)) {
+                    markdata.push({
+                    nak: false,
+                    lat: apolloSeismic[index].lat,
+                    lng: apolloSeismic[index].lng,
+                    mission: apolloSeismic[index].mission,
+                    name: apolloSeismic[index].name,
+                    svalue: `s${apolloSeismic[index].mission.split(' ')[1]}`
+                  });
+                }
+                
+
+              }
+
+              moon.htmlElementsData(markdata);
 
               
             }
