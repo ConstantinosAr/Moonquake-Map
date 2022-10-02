@@ -7,6 +7,9 @@ This project was created for NASA's Space Apps Challenge 2022.
 For more information please refer to our team site:  
 https://2022.spaceappschallenge.org/challenges/2022-challenges/moonquake-map/teams/brute-force-5/project
 
+Try out a demo of the map:
+https://constantinosar.github.io/Moonquake-Map/
+
 ##  Detailed Project Description
 ### Moon Map
 This project produces a map of the moon with Apollo PSE network stations and their plotted seismometer observations, as
@@ -30,10 +33,14 @@ each of the mid-period seismometers (MH1, MH2, MHZ). Additionally, the max devia
 on the plots are included with on each graph's title, which are useful to note disturbances in the graphs, indicating a
 possible moonquake.
 
+![PSE stations](/resources/demo_stations.png)
+
 Using the "Nakamura" tab, the user is able to click on dates from a list of dates where shallow moonquakes were detected
 in Nakamura et al. 1979 [1]. Clicking on a date highlights the corresponding moonquake with a ripple effect relative to
 the magnitude of the moonquake. Multiple moonquakes can be selected and displayed on the map. Clicking on "Clear Data"
 removes any mapped moonquakes from the map.
+
+![Nakamura moonquakes](/resources/demo_moonquakes.png)
 
 The Apollo PSE data used was scraped from NASA's PDS with pse_fetch.py and plotted with pse_plot.py using Python. ObsPy
 was used for data processing and plotting. Station info and locations (longitude, latitude) were retrieved from the
