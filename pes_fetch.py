@@ -122,7 +122,8 @@ def fetch_data(stations=None, years=None, days=None, only_mid_period=True):
         else:
             if not isinstance(years, list):
                 years = [years]
-            valid_years = [str(year) for year in years if str(year) in fetched_years]  # only valid stations
+            # only valid years
+            valid_years = [str(year) for year in years if str(year) in fetched_years]
 
         for index_year, year in enumerate(valid_years):
             fetched_days = fetch_days(station, year, return_num=True)
@@ -131,7 +132,8 @@ def fetch_data(stations=None, years=None, days=None, only_mid_period=True):
             else:
                 if not isinstance(days, list):
                     days = [days]
-                valid_days = ["%03d" % int(day) for day in days if int(day) in fetched_days]  # only valid days
+                # # only valid days
+                valid_days = ["%03d" % int(day) for day in days if int(day) in fetched_days]
 
             for index_day, day in enumerate(valid_days):
                 # add "s" in front of station number

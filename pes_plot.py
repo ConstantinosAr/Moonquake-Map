@@ -188,7 +188,8 @@ def plot_data(stations=None, years=None, days=None, display=False):
         else:
             if not isinstance(years, list):
                 years = [years]
-            valid_years = [str(year) for year in years if str(year) in saved_years]  # only valid stations
+            # only valid years
+            valid_years = [str(year) for year in years if str(year) in saved_years]
 
         for index_year, year in enumerate(valid_years):
             saved_days = get_saved_days(station, year, return_num=True)
@@ -197,7 +198,8 @@ def plot_data(stations=None, years=None, days=None, display=False):
             else:
                 if not isinstance(days, list):
                     days = [days]
-                valid_days = ["%03d" % int(day) for day in days if int(day) in saved_days]  # only valid days
+                # only valid days
+                valid_days = ["%03d" % int(day) for day in days if int(day) in saved_days]
 
             for index_day, day in enumerate(valid_days):
                 # add "s" in front of station number
