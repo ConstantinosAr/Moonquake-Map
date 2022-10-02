@@ -16,7 +16,7 @@
         <script src="https://unpkg.com/globe.gl"></script>
         <!-- <script src="../../dist/globe.gl.js"></script> -->
 
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="./resources/style.css">
         
     </head>
       
@@ -400,11 +400,11 @@
 
           async function getData() {
 
-            let naka = await fetch('./cleanedData.json');
+            let naka = await fetch('./resources/cleanedData.json');
 
             nakaData = await naka.json();
 
-            let apollo = await fetch('./Apollo_seismic_network.json');
+            let apollo = await fetch('./resources/Apollo_seismic_network.json');
 
             apolloSeismic = await apollo.json();
 
@@ -412,7 +412,7 @@
 
             plot_data = await plots.json();
 		  
-	    let moonlandings = await fetch('./moon_lands.json');
+	    let moonlandings = await fetch('./resources/moon_lands.json');
 
             moonland_data = await moonlandings.json();
 
@@ -467,8 +467,8 @@
       
             
             const moon = Globe()
-              .globeImageUrl('./lunar_surface.jpg')
-              .bumpImageUrl('./lunar_bumpmap.jpg')
+              .globeImageUrl('./resources/lunar_surface.jpg')
+              .bumpImageUrl('./resources/lunar_bumpmap.jpg')
               .backgroundImageUrl('https://unpkg.com/three-globe@2.24.7/example/img/night-sky.png')
               .showGraticules(false)
               .showAtmosphere(false) // moon has no atmosphere
