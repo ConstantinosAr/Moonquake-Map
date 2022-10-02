@@ -485,7 +485,7 @@
         //         `)
         //       .onLabelClick(d => window.open(d.url, '_blank'))
               .ringsData(gData)
-              .ringColor(() => colorInterpolator)
+              .ringColor(() => "yellow")
               .ringMaxRadius('maxR')
               .ringPropagationSpeed('propagationSpeed')
               .ringRepeatPeriod('repeatPeriod')
@@ -539,10 +539,10 @@
                 return el;
               })
 	      .labelText('label')
-              .labelSize(1.9)
+              .labelSize(2.0)
               .labelDotRadius(0.6)
               .labelDotOrientation(d => labelsTopOrientation.has(d.label) ? 'top' : 'bottom')
-              .labelColor(d => colorScale(d.agency))
+              .labelColor(d => "lightskyblue")
               .labelLabel(d => `
                   <div><b>${d.label}</b></div>
                   <div>${d.agency} - ${d.program} Program</div>
