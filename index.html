@@ -183,7 +183,7 @@
           <div style="position: absolute; right:5px; cursor: pointer;" onclick="document.getElementById('cont').style.display = 'none';">
             <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.72 5.72a.75.75 0 011.06 0L12 10.94l5.22-5.22a.75.75 0 111.06 1.06L13.06 12l5.22 5.22a.75.75 0 11-1.06 1.06L12 13.06l-5.22 5.22a.75.75 0 01-1.06-1.06L10.94 12 5.72 6.78a.75.75 0 010-1.06z"/></svg>
           </div>
-          <img id="plots" src="" alt="">
+          <img id="plots" src="" alt="" style="width:600px;">
         </div>
 
         <h1 id="mycust"></h1>
@@ -612,12 +612,13 @@
               
 
                 markdata.push({
-                  nak: false,
-                  lat: apolloSeismic[index].lat,
-                  lng: apolloSeismic[index].lng,
-                  mission: apolloSeismic[index].mission,
-                  name: apolloSeismic[index].name
-                });
+		nak: false,
+		lat: apolloSeismic[index].lat,
+		lng: apolloSeismic[index].lng,
+		mission: apolloSeismic[index].mission,
+		name: apolloSeismic[index].name,
+		svalue: `s${apolloSeismic[index].mission.split(' ')[1]}`
+	      });
 
               }
 
