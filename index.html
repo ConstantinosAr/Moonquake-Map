@@ -22,9 +22,6 @@
       
       <body>
 
-        <div id"mlabel" style="position: absolute;" class="mainLabel">
-          <h2 id="toplabel" class="labelStyle" style="font-size: 30px; color: white;">1971, 17 Apr</h2>
-        </div>
         
         <div id="menu" style="position:absolute; z-index:30; width:400px; height:50px; background-color: rgba(0, 0, 0, 0.7);">
           <div style="display:flex; justify-content: space-around; align-items: center; height: 100%; text-align: center">
@@ -542,8 +539,8 @@
                 return el;
               })
 	      .labelText('label')
-              .labelSize(1.7)
-              .labelDotRadius(0.4)
+              .labelSize(1.9)
+              .labelDotRadius(0.6)
               .labelDotOrientation(d => labelsTopOrientation.has(d.label) ? 'top' : 'bottom')
               .labelColor(d => colorScale(d.agency))
               .labelLabel(d => `
@@ -669,10 +666,6 @@
               let index = event.currentTarget.getAttribute("nakNum");
 
               event.currentTarget.children[0].style.backgroundColor = 'rgba(192, 192, 192, 0.6)';
-
-
-              document.getElementById('toplabel').innerText = event.currentTarget.children[0].innerText;
-
 
               
                 markdata.push({
