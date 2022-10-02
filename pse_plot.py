@@ -46,7 +46,7 @@ def make_plot_dictionary():
                 # first time visiting day of month, init
                 if day_month not in plot_dict[year][month]:
                     plot_dict[year][month][day_month] = {}
-                    plot_dict[year][month][day_month]["doy"] = day
+                    plot_dict[year][month][day_month]["doy"] = "%03d" % day
                     plot_dict[year][month][day_month]["stations"] = []
 
                 # station has a plot for day
@@ -281,10 +281,10 @@ def plot_data(stations=None, years=None, days=None, display=False):
 
 
 if __name__ == "__main__":
-    plot_data("s11")
-    plot_data("s12")
-    plot_data("s14")
-    plot_data("s15")
-    plot_data("s16")
+   # plot_data("s11")
+    #plot_data("s12")
+   # plot_data("s14")
+   # plot_data("s15")
+    #plot_data("s16")
 
     make_plot_dictionary()
