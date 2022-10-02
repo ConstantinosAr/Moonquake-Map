@@ -34,19 +34,19 @@
           <h1 style="font-size: 30px; font-weight: bold; color: white; text-align: center; margin: 8px 0 8px 0;">Moonquake Map</h1>
           <div class="" style="text-align: center;">
             <h3 style="font-size: 20px; color:white; font-weight: bold;">Year</h3>
-            <input id="yearslider" min="0" max="8" type="range" class="form-range" style="width: 80%;">
+            <input id="yearslider" min="0" max="8" value="0" type="range" class="form-range" style="width: 80%;">
             <div style="margin-top: 5px;">
               <label id="yearlabel" for="customRange1" class="form-label" style="display: inline-block; padding: 0 8px 0 8px; text-align:center; font-size: 25px; border-radius: 5px; padding: 0px 8px 0 8px;; background-color: rgba(255, 255, 255, 0.6);">1969</label>
             </div>
 
             <h3 style="font-size: 20px; color:white; font-weight: bold;">Month</h3>
-            <input id="monthslider" min="0" max="11" type="range" class="form-range" style="width: 80%;">
+            <input id="monthslider" min="0" max="11" value="0" type="range" class="form-range" style="width: 80%;">
             <div style="margin-top: 5px;">
               <label id="monthlabel" for="customRange1" class="form-label" style="display: inline-block; padding: 0 8px 0 8px; text-align:center; font-size: 25px; border-radius: 5px; padding: 0px 8px 0 8px;; background-color: rgba(255, 255, 255, 0.6);">Jan</label>
             </div>
 
             <h3 style="font-size: 20px; color:white; font-weight: bold;">Day</h3>
-            <input id="dayslider" min="1" max="30" type="range" class="form-range" style="width: 80%;">
+            <input id="dayslider" min="1" max="30" value="1" type="range" class="form-range" style="width: 80%;">
             <div style="margin-top: 5px;">
               <label id="daylabel" for="customRange1" class="form-label" style="display: inline-block; padding: 0 8px 0 8px; text-align:center; font-size: 25px; border-radius: 5px; padding: 0px 8px 0 8px;; background-color: rgba(255, 255, 255, 0.6);">1</label>
             </div>
@@ -477,6 +477,13 @@
               document.getElementById('nakamura').style.display = 'block';
               document.getElementById('con').style.borderBottom = 'none';
               document.getElementById('nak').style.borderBottom = '2px solid white';
+		    
+	      let divs = document.querySelectorAll('.nakEvent');
+
+              for (const child of divs) {
+              	child.style.backgroundColor = "rgba(0, 0, 0, 0.6)";
+              
+              }
 
               markdata = [];
 
