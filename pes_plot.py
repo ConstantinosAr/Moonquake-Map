@@ -5,7 +5,6 @@ import pandas as pd
 import os
 import json
 import calendar
-import sys
 
 
 def make_plot_dictionary():
