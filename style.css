@@ -1,0 +1,41 @@
+.nakEvent {
+    border-radius: 5px;
+    border: 2px solid white;
+    padding: 4px 8px 4px 8px;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 265px;
+    margin: 0 auto;
+    font-size: 24px;
+    color: white;
+}
+
+.nakEvent:hover {
+
+    background-color: rgba(192, 192, 192, 0.6);
+}
+
+.mainLabel {
+
+    position: absolute;
+    z-index: 30;
+    top:15px;
+    width: 100%;
+
+}
+
+.labelStyle {
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    color: white
+}
+
+#clearMap {
+    text-align: center;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px solid white;
+    color: white;
+    font-size: 22px;
+}
