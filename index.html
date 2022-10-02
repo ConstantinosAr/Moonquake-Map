@@ -540,11 +540,6 @@
               .labelDotRadius(0.6)
               .labelDotOrientation(d => labelsTopOrientation.has(d.label) ? 'top' : 'bottom')
               .labelColor(d => "lightskyblue")
-              .labelLabel(d => `
-                  <div><b>${d.label}</b></div>
-                  <div>${d.agency} - ${d.program} Program</div>
-                  <div>Landing on <i>${new Date(d.date).toLocaleDateString()}</i></div>
-                `)
               .labelsData(moonland_data)
               (document.getElementById('globeViz'));
       
