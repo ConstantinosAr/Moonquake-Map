@@ -1,12 +1,25 @@
+from urllib.request import urlretrieve
 import pandas as pd
 import datetime
 import json
 import os
 
 
+def fetch_1979():
+    """
+    Fetches Nakamura 1979 shallow moonquake locations file
+    """
+    url = "https://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-apollo_seismic_event_catalog/data/" \
+          "nakamura_1979_sm_locations.csv"
+
+    file_path_out = os.path.join(os.getcwd(), "data", "nakamura", "nakamura_1979_sm_locations.csv")
+
+    urlretrieve(url, file_path_out)
+
+
 def convert_1979():
     """
-    Handles shallow moonquake locations file from Nakamura 1979.
+    Converts columns of Nakamura 1979 shallow moonquake locations file.
 
     Converts year, day of year, hour, minute, second, into one datetime value, labels rows, and outputs to file.
     """
@@ -34,4 +47,5 @@ def convert_1979():
 
 
 if __name__ == "__main__":
+    fetch_1979()
     convert_1979()
